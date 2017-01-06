@@ -1,6 +1,8 @@
 
 // to show you how stupid it is to buy a lottery ticket, just try 
-// and hit this jackpot, play as much as you want. Jackpot is 1 in 14 000 000
+// and hit this jackpot, play as much as you want. This is 1 in 10 000 you could change it to 
+// reflect a jackpot which might be something like 1 in 14 000 000
+
 // function guess(x){
 // 	var limit = 10001
 // 	var count = 0
