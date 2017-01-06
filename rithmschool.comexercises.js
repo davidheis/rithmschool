@@ -157,6 +157,100 @@ function singleLetterCount(word, letter){
 	return count
 }
 
+function multipleLetterCount(str){
+	var finalObj = {};
+	for (var i = 0; i < str.length; i++) {
+		if(!str[i] in finalObj) {
+			finalObj[str[i]] = 1;
+		} else{
+			finalObj[str[i]]++;
+		}
+	}
+	console.log(finalObj);
+}
+
+function arrayManipulation(arr, command, location, value){
+	if (command === 'remove') {
+		if (location === 'end') {
+			return arr.pop()
+		} 
+		return arr.shift()
+	} else if(command === 'add'){
+		if (location === 'beginning') {
+			 arr.unshift(value)
+			 return arr
+		} 
+		arr.push(value)
+		return arr
+	}
+}
+
+function isPalindrome(str){
+	str = str.replace(/ /g, '')
+	for (var i = 0; i < str.length/2; i++) {
+		if (str[i].toLowerCase() !== str[str.length-1-i].toLowerCase()) {
+			return false
+		}
+	}
+	return true
+}
+
+// Rock paper scissors game
+function RPS(){
+	var userChoice = prompt('Choose rock, paper or scissors').toLowerCase()
+	var answers = ['rock', 'paper', 'scissor']
+
+	function determineComputer(num){
+		if(num <= .33){
+			return 'rock'
+		}else if(num <= .66){
+			return 'paper'
+		}
+		return 'scissor'
+	}
+
+	var computerChoice = determineComputer(Math.random())
+
+	if(!userChoice || answers.indexOf(userChoice) === -1){
+		return 'Please select a valid option.'
+	}
+
+	if(userChoice === computerChoice){
+		return 'Tie!'
+	}
+
+	if(userChoice === 'rock' && computerChoice === 'paper'){
+		return 'You lose, computer picked ' + computerChoice
+	}
+
+	if(userChoice === 'paper' && computerChoice === 'scissor'){
+		return 'You lose, computer picked ' + computerChoice
+	}
+
+	if(userChoice === 'scissor' && computerChoice === 'rock'){
+		return 'You lose, computer picked ' + computerChoice
+	}
+	return 'You win! Computer picked ' + computerChoice
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
