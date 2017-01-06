@@ -83,6 +83,8 @@ function countEvensAndOdds(arr){
 
 }
 
+
+
 function onlyCapitalLetters(str){
 	var arr = []
 	str = str.split('')
@@ -236,7 +238,91 @@ function RPS(){
 	return 'You win! Computer picked ' + computerChoice
 }
 
+function displayEvenNumbers(){
+    var numbers = [1,2,3,4,5,6,7,8]
+    var evenNumbers = []
+    for(var i=0; i<numbers.length; i++){
+        if(numbers[i] % 2 === 0) {
+            evenNumbers.push(numbers[i])
+        } 
+    }
+    return evenNumbers;
+}
+displayEvenNumbers()
 
+var programmingLanguages = {
+    java: {
+        yearCreated: 1995,
+        creator: "James Gosling"
+    },
+    javaScript: {
+        yearCreated: 1995,
+        creator: "Brendan Eich"
+    }
+}
+var instructorData = {
+    name: "Elie",
+    additionalData: {
+        instructor: true,
+        favoriteHobbies: ["Playing Cello", "Tennis", "Coding"],
+        moreDetails: {
+            favoriteBasketballTeam: "New York Knicks",
+            numberOfSiblings: 3,
+            isYoungest: true,
+            hometown: {
+                city: "West Orange",
+                state: "NJ",
+            },
+            citiesLivedIn: ["Seattle", "Providence", "New York"]
+        }
+    }
+};
+
+function addProgrammingLanguage(nameOfLanguage, yearLanguageCreated, creatorOfLanguage){
+    // how can we access the programming languages object?
+    // We can't use dot notation, because we don't know the name of
+    // the key until the function is called.
+    // Instead we use bracket notation where the key is the
+    // nameOfLanguage that is being passed to the function.
+    programmingLanguages[nameOfLanguage] = {
+        // Creating the object which will be the value of the
+        // key.  We can directly assign the yearLanguageCreated
+        // and creatorOfLanguage to the appropriate keys here.
+        yearCreated: yearLanguageCreated,
+        creator: creatorOfLanguage
+    }
+}
+
+// Usage example: Adding a key of ruby to the programming language object,
+// with the value of 1995 for the key "yearCreated" and the value
+// "Yukihiro Matsumoto" for creatorOfLanguage
+addProgrammingLanguage("ruby", 1995, "Yukihiro Matsumoto");
+
+function displayCities(){
+	var cities = instructorData.additionalData.moreDetails.citiesLivedIn
+	for (var i = 0; i < cities.length; i++) {
+		console.log(cities[i])
+	}
+}
+
+function displayHometownData(){
+	var hometown = instructorData.additionalData.moreDetails.hometown
+	for (var key in hometown) {
+		console.log(hometown[key])
+	}
+}
+
+function addDetail(key, value){
+	var moreDetails = instructorData.additionalData.moreDetails
+	moreDetails[key] = [value]
+	return moreDetails
+}
+
+function removeDetail(key){
+	var moreDetails = instructorData.additionalData.moreDetails
+	delete moreDetails[key]
+	return moreDetails
+}
 
 
 
